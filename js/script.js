@@ -1,5 +1,25 @@
 const arr=["Rock", "Paper","Scissors"];
 
+const rock=document.querySelector(".rock");
+const paper=document.querySelector(".paper");
+const scissors=document.querySelector(".scissors");
+const result=document.querySelector(".result");
+
+let player=0;
+let computer=0;
+let rounds=0;
+
+rock.addEventListener("click", function() {
+    game(playRoun(playerPlay(0),computerPlay()));
+});
+paper.addEventListener("click", function() {
+    game(playRoun(playerPlay(0),computerPlay()));
+});
+scissors.addEventListener("click", function() {
+    game(playRoun(playerPlay(0),computerPlay()));
+});
+
+
 function computerPlay(){
     return arr[Math.floor(Math.random()*3)];
 }
@@ -9,64 +29,75 @@ function playerPlay(int){
 
 }
 
+
 function playRoun(player,computer){
+    let massage="";
+
     if (player.toLowerCase()=="rock") {
 
         if (computer.toLowerCase()=="rock") {
-             return "Draw! Rock equals Rock"
+            massage="Draw! Rock equals Rock";
         }else if(computer.toLowerCase()=="paper"){
-            return "You lose! Paper beats Rock"
+            massage= "You lose! Paper beats Rock";
         }else{
-            return "You win! Rock beats Scissors"
+            massage="You win! Rock beats Scissors";
         }
 
 
     }else if(player.toLowerCase()=="paper"){
 
         if (computer.toLowerCase()=="rock") {
-            return "You win! Paper beats Rock"
+            massage="You win! Paper beats Rock";
         }else if(computer.toLowerCase()=="paper"){
-            return "Draw! Paper equals Paper"
+            massage="Draw! Paper equals Paper";
         }else{
-            return "You lose! Scissors beat Paper"
+            massage="You lose! Scissors beat Paper";
         }
 
 
     }else{
 
         if (computer.toLowerCase()=="rock") {
-            return "You lose! Rock beats Scissors"
+            massage="You lose! Rock beats Scissors";
         }else if(computer.toLowerCase()=="paper"){
-            return "You win! Scissors beats Paper"
+            massage="You win! Scissors beats Paper";
         }else{
-            return "Draw! Scissors equals Scissors"
+            massage= "Draw! Scissors equals Scissors";
+
+
         }
     }
+
+
+    document.querySelector('.gameSet').textContent=massage;
+    return massage;
 }
 
-function game(){
-    let player=0;
-    let computer=0;
-    let output="";
-    for (let i = 0; i < 5; i++) {
-        output=playRoun(playerPlay(prompt()-1),computerPlay());
-        console.log(output);
 
-        if(output.includes("win")){
+function game(massage){
+    
+        if(massage.includes("win")){
             player++;
-        }else if(output.includes("lose")){
+        }else if(massage.includes("lose")){
             computer++;
         }else{
             player++;
             computer++;
         }
-    }
+        result.textContent=`The result is ${player} to ${computer}`;
+        rounds++;
 
-    if (player>computer) {
-        console.log(`You win the game! ${player} to ${computer}`);
-    }else{
-        console.log(`You lose the game! ${player} to ${computer}`);
- }
+        if(player==5 || computer==5){
+            rock.style.display='none';
+            paper.style.display='none';
+            scissors.style.display='none';
+
+            if (player>computer) {
+                result.textContent=`Congratulations! You win the game!`;
+            } else {
+                result.textContent=`OH,no! You lose the game!`;
+            }
+            document.querySelector('.gameSet').textContent=`The result is ${player} to ${computer}`;;
+        }
 }
 
-game();
