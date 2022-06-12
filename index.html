@@ -9,19 +9,42 @@
 </head>
 <body>
 
-    <h1 class="result">The result is 0 to 0</h1>
+    <!--Title page-->
+    <div class="title-page">
+    <h1 class="game-title">Rock,Paper,Scissors</h1>
+    <h2 class="subtitle">Mav vs Computer</h2>
+    <h3 class="introduction">Can you beat the computer on Rock,Paper,Scissors???</h3>
+    <button class="play" onclick="displayGame()">Begin the game</button>
+</div>
+    <!--Game screen-->
+    <h1 class="result">Good Luck!</h1>
+    <div class="game">
+    <div class="gameSet"></div>
 
-    <div class="container">
-        <div class="rock"><img src="" alt=""><p class="title">Rock</p></div>
+    <div class="current-container">
+        <div class="player-select"><img src=""  id="player-select"><p class="title"></p></div>
 
-        <div class="paper"><img src="" alt=""><p class="title">Paper</p></div>
-
-        <div class="scissors"><img src="" alt=""><p class="title">Scissors</p></div>
+        <div class="computer-select"><img src=""  id="computer-select"><p class="title"></p></div>
 
     </div>
 
-    <div class="gameSet"></div>
+
+    <div class="container">
+        <div class="rock"><img src="imgs/Rock.png" alt="rock"><p class="title">Rock</p></div>
+
+        <div class="paper"><img src="imgs/Paper.png" alt="paper"><p class="title">Paper</p></div>
+
+        <div class="scissors"><img src="imgs/Scissors.png" alt="scissors"><p class="title">Scissors</p></div>
+
+    </div>
+</div>
+
+    <!--End screen-->
     
+    <div class="play-again">
+    <button class="play" onclick="beginAgain()">Play again</button>
+</div>
+    <script src="js/view.js"></script>
     <script src="js/script.js"></script>
     
 </body>

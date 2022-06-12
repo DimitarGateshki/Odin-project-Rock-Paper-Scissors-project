@@ -1,0 +1,50 @@
+body{
+    margin: 2% 2%;
+    padding: 0;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace;
+
+}
+
+.container,
+.current-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+}
+.current-container{
+    padding: 0 20%;
+}
+img{
+    width: auto;
+    height: 300px;
+}
+
+.play{
+    margin-top: 5%;
+    background-color: aquamarine;
+    border-radius: 25px;
+    font-size: 2rem;
+    padding: 1% 2%;
+    border: 1px solid black;
+}
+
+.gameSet{
+    margin: 2% 0;
+}
+
+.current-container{
+margin: 2% 0;
+}
+
+.result,
+.game
+{
+    display: none;
+}
+
+.play-again{
+    display: none;
+
+}
+
